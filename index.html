@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nidarshan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="./images/logo-title.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+  </head>
+<body class="overflow-x-hidden">
+        <div class="flex flex-col min-h-[100vh] min-w-[100vw] p-20 bg-cover bg-center" style="background-image: url('./images/bg.jpg');">
+            <div class="shadow-lg w-[100%] h-[100%] flex flex-col gap-4 bg-white rounded-lg">
+                <nav class="bg-transparent rounded-md">
+                    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+                      <div class="relative flex h-16 items-center justify-between">
+                        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+
+                          <!-- Mobile menu button-->
+                          <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                            <span class="absolute -inset-0.5"></span>
+                            <span class="sr-only">Open main menu</span>
+                            <!--
+                              Icon when menu is closed.
+                  
+                              Menu open: "hidden", Menu closed: "block"
+                            -->
+                            
+                            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            </svg>
+                            <!--
+                              Icon when menu is open.
+                  
+                              Menu open: "block", Menu closed: "hidden"
+                            -->
+                            <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                        <div class="flex flex-row justify-between items-center w-full gap-4">
+                          <div>
+                            <img src="./images/logo-no-background.png" class="h-[40px]">
+
+                          </div>
+                          <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                            
+                            <div class="hidden sm:ml-6 sm:block">
+                              <div class="flex space-x-4">
+                                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                                
+                                <a href="#" class="bg-[#2bbf97] text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
+                                <a href="#" class="text-black-300 hover:bg-[#2bbf97] hover:text-white rounded-md px-3 py-2 text-sm font-medium">Doctors</a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    
+                            <!-- Profile dropdown -->
+                            <div class="relative ml-3">
+                              <div>
+                                <button type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                  <span class="absolute -inset-1.5"></span>
+                                  <span class="sr-only">Open user menu</span>
+                                  <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Mobile menu, show/hide based on menu state. -->
+                    <div class="sm:hidden" id="mobile-menu">
+                      <div class="space-y-1 px-2 pb-3 pt-2">
+                        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                        <a href="#" class="bg-[#2bbf97] text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a>
+                        <a href="#" class="text-gray-300 hover:bg-[#2bbf97] hover:text-white block rounded-md px-3 py-2 text-base font-medium" id="Doctors">Doctors</a>
+                        
+                      </div>
+                    </div>
+                  </nav>
+                  <div class="flex flex-row gap-4 items-center justify-center w-[90%] mx-auto">
+
+                      <div class="flex flex-col w-[90%] gap-4">
+                        <p class="text-2xl">Get Quick <span class="font-semibold">Medical Results</span></p>
+                        <p class="text-md w-[60%] mb-2">Our innovative solution harnesses the power of AI to revolutionize skin disease detection and diagnosis.</p>
+                        <form onsubmit="seeResults(event)">
+                            <div class="flex items-center space-x-6">
+                              <div class="flex flex-col gap-3">
+                                <div class="shrink-0">
+  
+                                  <div class="h-[200px] w-[200px] border-[1px] border-gray-200 rounded-lg flex flex-col justify-center items-center shadow-lg" id="dummy" onclick="document.getElementById('file-input').click()">
+                                    <img src="https://icons-for-free.com/iconfiles/png/512/cloud+upload+file+storage+upload+icon-1320190558968694328.png" 
+                                    class="w-[50px] h-[50px]">
+                                  </div>
+                                  <img src="" class="h-[200px] w-[200px] border-[1px] hidden shadow-lg rounded-lg" id="preview_img">
+                                </div>
+                                <label class="block">
+                                  <span class="sr-only">Choose profile photo</span>
+                                  <input type="file" onchange="loadFile(event)" 
+                                  id="file-input"
+                                  class="block w-full text-sm text-slate-500
+                    
+                                    file:mr-4 file:py-2 file:px-4
+                                    file:rounded-full file:border-0
+                                    file:text-sm file:font-semibold
+                                    file:bg-violet-50 file:text-violet-700
+                                    hover:file:bg-violet-100
+                                  "/>
+                                </label>
+
+                              </div>
+                            </div>
+                            
+                            <button class="rounded-md bg-[#2bbf97] mt-4 mb-3 p-2 font-semibold text-white" id="Result" type="submit">
+                                See Results
+                            </button>
+                          </form>
+                          <span class="loader hidden my-2" id="loader"></span>
+                          <div class="hidden flex flex-col gap-2 my-2 text-xl p-2 border-[2px] rounded-md w-[50%]" id="result-here">
+                            <span class="font-semibold">Your Skin Result Goes Here:- </span>
+                            <div id="result" class="text-xl">
+  
+                            </div>
+                          </div>
+
+                          
+                      </div>
+
+                      <div class="relative my-4 flex flex-col " id="doctor">
+                          <img src="https://static.vecteezy.com/system/resources/previews/022/484/658/original/cute-doctor-women-compassionate-and-skilled-models-for-medical-industry-projects-transparent-background-free-png.png" 
+                          class="w-[450px] z-20">
+                          <div class="bg-[#2bbf97] rounded-full w-[250px] h-[250px] absolute translate-y-[40px] translate-x-[60px]"></div>
+                      </div>
+                  </div>
+            </div>
+        </div>
+
+
+        <div class="bg-white py-24 sm:py-32">
+          <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl lg:mx-0">
+              <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">From the blog</h2>
+              <p class="mt-2 text-lg leading-8 text-gray-600">Learn how to grow your business with our expert advice.</p>
+            </div>
+            <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+              <article class="flex max-w-xl flex-col items-start justify-between">
+                <div class="flex items-center gap-x-4 text-xs">
+                  <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
+                  <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+                </div>
+                <div class="group relative">
+                  <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                    <a href="#">
+                      <span class="absolute inset-0"></span>
+                      Boost your conversion rate
+                    </a>
+                  </h3>
+                  <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+                </div>
+                <div class="relative mt-8 flex items-center gap-x-4">
+                  <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-10 w-10 rounded-full bg-gray-50">
+                  <div class="text-sm leading-6">
+                    <p class="font-semibold text-gray-900">
+                      <a href="#">
+                        <span class="absolute inset-0"></span>
+                        Michael Foster
+                      </a>
+                    </p>
+                    <p class="text-gray-600">Co-Founder / CTO</p>
+                  </div>
+                </div>
+              </article>
+              <article class="flex max-w-xl flex-col items-start justify-between">
+                <div class="flex items-center gap-x-4 text-xs">
+                  <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
+                  <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+                </div>
+                <div class="group relative">
+                  <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                    <a href="#">
+                      <span class="absolute inset-0"></span>
+                      Boost your conversion rate
+                    </a>
+                  </h3>
+                  <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+                </div>
+                <div class="relative mt-8 flex items-center gap-x-4">
+                  <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-10 w-10 rounded-full bg-gray-50">
+                  <div class="text-sm leading-6">
+                    <p class="font-semibold text-gray-900">
+                      <a href="#">
+                        <span class="absolute inset-0"></span>
+                        Michael Foster
+                      </a>
+                    </p>
+                    <p class="text-gray-600">Co-Founder / CTO</p>
+                  </div>
+                </div>
+              </article>
+              <article class="flex max-w-xl flex-col items-start justify-between">
+                <div class="flex items-center gap-x-4 text-xs">
+                  <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
+                  <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+                </div>
+                <div class="group relative">
+                  <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                    <a href="#">
+                      <span class="absolute inset-0"></span>
+                      Boost your conversion rate
+                    </a>
+                  </h3>
+                  <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+                </div>
+                <div class="relative mt-8 flex items-center gap-x-4">
+                  <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-10 w-10 rounded-full bg-gray-50">
+                  <div class="text-sm leading-6">
+                    <p class="font-semibold text-gray-900">
+                      <a href="#">
+                        <span class="absolute inset-0"></span>
+                        Michael Foster
+                      </a>
+                    </p>
+                    <p class="text-gray-600">Co-Founder / CTO</p>
+                  </div>
+                </div>
+              </article>
+              <!-- More posts... -->
+            </div>
+          </div>
+        </div>
+        
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script src="script.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</html>
